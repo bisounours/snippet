@@ -1,0 +1,139 @@
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Personal Snippet">  
+  <title>Corail Documentation</title>
+  <link rel="icon" href="_media/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
+  <!-- Custom theme styles -->
+  <style>
+    .sidebar .sidebar-nav {
+      /* Menu lines more compact */
+      line-height: 1.2em;
+      /* Menu not stuck on left completely */
+      padding-left: 10px;
+    }
+    .content {
+      /* Reduce header blank line to win some read space */
+      padding-top: 0;
+    }
+
+    img[alt~="pull-right"] {
+      float: right;
+      margin-left: 50px;
+      margin-bottom: 20px;
+    }
+
+    img[alt~="pull-left"] {
+      float: left;
+      margin-right: 50px;
+      margin-bottom: 20px;
+    }
+
+    img
+
+    h2 {
+      clear: both;
+    }
+
+  .markmap {
+    width: 100% !important;
+    height : 500px !important;
+  }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+  <script type="module">
+    import mermaid from "https://unpkg.com/mermaid@9.4.3/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: false });
+    window.mermaid = mermaid;
+  </script>
+  <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
+  <script>
+    var num = 0;
+    window.$docsify = {
+      name: 'Corail Survival Guide',
+      /*logo: 'resources/corail-title-small.svg',*/
+      repo: 'https://github.com/bisounours/snippet',
+      nameLink: 'https://pages.github.com/bisounours/snippet',
+      loadSidebar: true,
+      auto2top: true,
+      mermaidConfig: {
+        querySelector: ".mermaid"
+      },
+      alias: {
+          '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      sidebarDisplayLevel: 0,
+      /* Emojis required, for sample /references/platforms?id=monitoring */
+      noEmoji: false,
+      relativePath: true,
+      subMaxLevel: 0,
+      themeColor: '#3F51B5',
+      plugins: [
+        EditOnGithubPlugin.create('https://pages.github.com/bisounours/snippet/tree/master/docs/', null, null)
+      ],
+      'flexible-alerts': {
+        style: 'callout'
+      },
+      toc: {
+        tocMaxLevel: 5,
+        target: 'h2, h3, h4, h5, h6',
+        ignoreHeaders:  ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+      },
+      plantuml: {
+        skin: 'default',
+      },
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+      mindmap: {
+        // https://github.com/dundalek/markmap
+        markmap: {
+          preset: 'colorful', // or default
+          linkShape: 'diagonal' // or bracket
+        }
+      }
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+  <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
+  <script src="//unpkg.com/docsify-copy-code@2"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-batch.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-docker.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-hcl.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-ini.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-log.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-powershell.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-properties.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-xml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.15.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-markmap.js@1.0.0/docsify-markmap.min.js"></script>
+</body>
+</html>
