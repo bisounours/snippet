@@ -1,5 +1,11 @@
 
 - [Java](/java/java_argument.md)
 - [NotePad++](/notepad/notepad.md)
+- [Oracle](/oracle/oracle_snippet.md)
+  - [Executed queries](/oracle/oracle_query_execution_snippet.md)
+  - [Tablespace](/oracle/oracle_tablespace_snippet.md)
+  - [Configuration](/oracle/oracle_configuration_snippet.md)
+  - [Model](/oracle/oracle_model_snippet.md)
+- [Common issues](oracle_current_issue.md)
 - [Shell](/shell/shell.md)
 - [Windows](/windows/windows_cmd.md)
