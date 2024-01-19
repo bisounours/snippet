@@ -1,4 +1,4 @@
-# Documentation
+# Snippets
 
 ## Purpose of the repository
 
