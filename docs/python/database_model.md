@@ -17,24 +17,24 @@ The script generates 2 output files :
 The script contains 6 variables which can be configured : 
 ```python
 # The CSV file must have the following fields : TABLE_NAME;COLUMN_NAME;TYPE;CHAR_LENGH;NUMBER_LENGTH;CONSTRAINT_TYPE
-allColumnFile = open('allColumnsKO3.csv','r')
+allColumnFile = open('allColumns.csv','r')
 # The CSV file must have the following fields : TABLE_NAME;COLUMN_NAME;CONSTRAINT_NAME;FOREIGN_TABLE_NAME;FOREIGN_COLUMN_NAME
-allForeignKeysFile = open('allForeignKeysKO3.csv','r')
+allForeignKeysFile = open('allForeignKeys.csv','r')
 # The CSV file must have the following fields : TABLE_NAME;COLUMN_NAME;CONSTRAINT_NAME
-allUniqueConstraintFile = open('allUniqueConstraintKO3.csv','r')
+allUniqueConstraintFile = open('allUniqueConstraint.csv','r')
 # Table pattern to filter 
-pattern = "KO3Q[T|V]P[0-9]+|KO3QTDRE|KO3QTDRI"
+pattern = "TABLE_NAME_PATTERN"
 
 # The result file use the mermaid format for entioty relationship diagram
 resultFileDot = open('modelDiagramDot.txt','w')
 resultFileMermaid = open('modelDiagramMermaid.txt','w')
 ```
 
-- allColumnFile : path to the file which contains all the tables/columns (format of the file specified in comment)
-- allForeignKeysFile : path to the file which contains all the foreign keys (format of the file specified in comment)
-- allUniqueConstraintFile : path to the file which contains all the unique constraints (format of the file specified in comment)
-- pattern : pattern to filter on the table name
-- resultFileDot and resultFileMermaid : output files
+- **allColumnFile** : path to the file which contains all the tables/columns (format of the file specified in comment)
+- **allForeignKeysFile** : path to the file which contains all the foreign keys (format of the file specified in comment)
+- **allUniqueConstraintFile** : path to the file which contains all the unique constraints (format of the file specified in comment)
+- **pattern** : pattern to filter on the table name
+- **resultFileDot** and **resultFileMermaid** : output files
 
 ## 3. Full script
 
