@@ -1,4 +1,4 @@
-# Snippets baout Oracle model
+# Snippets about Oracle model
 
 ## Foreign keys 
 
