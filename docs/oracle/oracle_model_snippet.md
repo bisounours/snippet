@@ -4,21 +4,24 @@
 
  Get link between tables 
 
- ```sql 
+ ```sql
+spool /c:/tmp/datamodel.gv
+set serveroutput on;
  select c1.table_name || '(' || cc1.column_name || ')' || ' --> ' || c2.table_name || '(' || cc2.column_name || ')' from all_constraints c1
 inner join all_cons_columns cc1 on c1.constraint_name = cc1.constraint_name
 inner join all_constraints c2 on c1.r_constraint_name = c2.constraint_name
 inner join all_cons_columns cc2 on c2.constraint_name = cc2.constraint_name
 where c1.owner = 'XXX' 
-and c1.constraint_type = 'R'; 
+and c1.constraint_type = 'R';
+spool off; 
 ```
 
 ## Data model 
 
- create data model from existing database 
+Get list of tables and columns of a owner
 
  ```sql 
- spool /c:/tmp/datamodel.gv
+spool /c:/tmp/datamodel.gv
 set serveroutput on;
 DECLARE  
   CURSOR cur_table IS 
