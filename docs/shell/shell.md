@@ -1,5 +1,12 @@
 # Snippets for shell
 
+### File .bashrc
+```shell
+PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\]\h\[`tput sgr0`\]:$PWD\n\$'
+alias ll='ls -altr'
+alias less='less -R'
+```
+
 ### Zip list of file based on a pattern
 
 ```shell
